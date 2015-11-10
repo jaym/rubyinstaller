@@ -15,17 +15,26 @@ module RubyInstaller
     ]
   )
 
+  KNAPSACK_PACKAGES['openssl-fips'] = OpenStruct.new(
+    :human_name => "OpenSSL FIPS Module",
+    :version => '2.0.10',
+    :url => "http://ci.appveyor.com/api/buildjobs/ck4c2khx1vtbwsaa/artifacts/knap-build/var/knapsack/packages/openssl-fips",
+    :target => 'sandbox/openssl-fips',
+    :files => [
+      'openssl-fips-2.0.10-x86-windows.tar.lzma'
+    ],
+    :knapsack => false
+  )
+
   KNAPSACK_PACKAGES['openssl'] = OpenStruct.new(
     :human_name => "OpenSSL",
-    :version => '1.0.1l',
-    :url => "http://dl.bintray.com/oneclick/OpenKnapsack",
+    :version => '1.0.1p.fips',
+    :url => "http://ci.appveyor.com/api/buildjobs/ck4c2khx1vtbwsaa/artifacts/knap-build/var/knapsack/packages/openssl",
     :target => 'sandbox/openssl',
     :files => [
-      'openssl-1.0.1l-x86-windows.tar.lzma'
+      'openssl-1.0.1p.fips-x86-windows.tar.lzma'
     ],
-    :x64_files => [
-      'openssl-1.0.1l-x64-windows.tar.lzma'
-    ]
+    :knapsack => false
   )
 
   KNAPSACK_PACKAGES['ffi'] = OpenStruct.new(

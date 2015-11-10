@@ -102,6 +102,7 @@ module RubyInstaller
       :configure_options => [
         '--enable-shared',
         '--disable-install-doc',
+        '--with-bundled-md5',
         'debugflags=-g',
         "CPPFLAGS='-DFD_SETSIZE=2048'"
       ],
@@ -109,7 +110,7 @@ module RubyInstaller
         "ruby-2.0.0-p647.tar.bz2"
       ],
       :dependencies => [
-        :ffi, :gdbm, :iconv, :openssl, :pdcurses, :yaml, :zlib, :tcl, :tk
+        :ffi, :gdbm, :iconv, :'openssl-fips', :openssl, :pdcurses, :yaml, :zlib, :tcl, :tk
       ],
       :excludes => [
         'libcharset-1.dll'
@@ -171,7 +172,7 @@ module RubyInstaller
         "ruby-2.2.3.tar.bz2"
       ],
       :dependencies => [
-        :ffi, :gdbm, :openssl, :yaml, :zlib, :tcl, :tk
+        :ffi, :gdbm, :'openssl-fips', :openssl, :yaml, :zlib, :tcl, :tk
       ],
       :excludes => [],
       :installer_guid => "{F4249FFD-42CD-4404-9534-170D074544F4}",

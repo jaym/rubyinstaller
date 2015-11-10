@@ -16,12 +16,12 @@ require File.join(File.dirname(__FILE__), 'contrib', 'uri_ext')
 
 def download(args)
   args = URI.parse(args) if args.is_a?(String)
-  
+
   options = {
     :progress => true,
     :verbose => Rake.application.options.trace
   }
-  
+
   # Given only a download URL, download into a temporary file.
   # You can infer the file from task name.
   if URI === args

@@ -11,12 +11,17 @@ dependencies.each do |dependency_key, dependency|
       # Put files for the :download task
       dt = checkpoint(dependency_key, :download)
 
-      if compiler.host =~ /x86_64/
-        files = dependency.x64_files
-        files_url = "#{dependency.url}/x64"
-      else
+      if dependency.respond_to?(:knapsack)
         files = dependency.files
-        files_url = "#{dependency.url}/x86"
+        files_url = dependency.url
+      else
+        if compiler.host =~ /x86_64/
+          files = dependency.x64_files
+          files_url = "#{dependency.url}/x64"
+        else
+          files = dependency.files
+          files_url = "#{dependency.url}/x86"
+        end
       end
 
       files.each do |f|
